@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-mega", "id": "mega", "top": 0.6, "left": -3.6, "attrs": {} },
+    { "type": "wokwi-ili9341", "id": "lcd1", "top": -316, "left": 412.5, "attrs": {} },
+    { "type": "wokwi-analog-joystick", "id": "joystick1", "top": 210.6, "left": 255, "attrs": {} },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "joystick2",
+      "top": 210.6,
+      "left": 53.4,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "joystick2:GND", "joystick1:GND", "black", [ "v48", "h240" ] ],
+    [ "joystick1:GND", "mega:GND.4", "black", [ "v9.6", "h38.4", "v-144" ] ],
+    [ "joystick2:VCC", "joystick1:VCC", "red", [ "v57.6", "h240" ] ],
+    [ "joystick1:VCC", "mega:5V", "red", [ "v67.2", "h-142.7" ] ],
+    [ "joystick1:HORZ", "mega:A0", "orange", [ "v38.4", "h-124.8" ] ],
+    [ "joystick1:VERT", "mega:A1", "gold", [ "v28.8", "h-96" ] ],
+    [ "joystick2:HORZ", "mega:A2", "orange", [ "v9.6", "h118.3" ] ],
+    [ "mega:A3", "joystick2:VERT", "gold", [ "v161.1", "h-150.85" ] ],
+    [ "mega:5V.2", "lcd1:VCC", "red", [ "v1", "h93.4" ] ],
+    [ "lcd1:VCC", "lcd1:LED", "red", [ "v19.2", "h76.8" ] ],
+    [ "lcd1:SCK", "mega:52", "gray", [ "v0" ] ],
+    [ "lcd1:MOSI", "mega:51", "violet", [ "v0" ] ],
+    [ "lcd1:D/C", "mega:23", "orange", [ "v0" ] ],
+    [ "lcd1:RST", "mega:25", "gray", [ "v0" ] ],
+    [ "lcd1:CS", "mega:27", "gold", [ "v0" ] ],
+    [ "lcd1:GND", "mega:GND.5", "black", [ "v0" ] ]
+  ],
+  "serialMonitor": { "display": "terminal", "newline": "lf" },
+  "dependencies": {}
+}
